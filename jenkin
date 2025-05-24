@@ -1,28 +1,28 @@
 pipeline { 
     agent any 
     tools { 
-        maven 'Maven' // Ensure name matches with configured tool name exactly
+          maven ' Maven' //Ensure name matches with configured  
     } 
     stages { 
-        stage('Checkout') { 
+        stage('Checkout') {  
             steps { 
-                git branch: 'master', url: 'https://github.com/mesharada/reethu.git'
+                git branch: 'master', url: 'https://github.com/mesharada/reethu.git'  
             } 
-        } 
-        stage('Build') { 
+    } 
+     stage('Build') {  
             steps { 
-                bat 'mvn clean package' 
+                bat 'mvn clean package'  
             } 
-        } 
-        stage('Test') { 
+      } 
+     stage('Test') {  
             steps { 
-                bat 'mvn test' 
+                bat 'mvn test'  
             } 
-        } 
-       stages('Run Application'){
-           steps{
-               bat 'java-jar target/reethu-0.0.1-SNAPSHOT.jar'
-           }
+      } 
+     stage('Run Application') {  
+            steps { 
+                bat 'java –jar target/reethu-0.0.1-SNAPSHOT.jar'  
+            } 
        }
-    } // <- closes stages
-} // <- closes pipeline
+    }
+}
